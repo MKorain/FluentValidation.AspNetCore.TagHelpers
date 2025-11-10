@@ -1,0 +1,70 @@
+@model FluentValidation.AspNetCore.TagHelpers.Examples.Models.ProductModel
+
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+<h2>Add Product</h2>
+
+<form asp-fluent-model="@Model" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Stock"></label>
+        <input asp-for="Stock" class="form-control" type="number" />
+        <span asp-validation-for="Stock" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Sku"></label>
+        <input asp-for="Sku" class="form-control" placeholder="ABC-1234" />
+        <span asp-validation-for="Sku" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ManufacturerEmail"></label>
+        <input asp-for="ManufacturerEmail" class="form-control" type="email" />
+        <span asp-validation-for="ManufacturerEmail" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Rating"></label>
+        <select asp-for="Rating" class="form-control">
+            <option value="">-- Select Rating --</option>
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="5">5 Stars</option>
+        </select>
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CreditCard"></label>
+        <input asp-for="CreditCard" class="form-control" />
+        <span asp-validation-for="CreditCard" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Product</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
